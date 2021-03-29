@@ -1,0 +1,49 @@
+ALGORITHM SUM METHOD1
+ // sum distinct element
+VAR
+    tab1,tab2 : ARRAY_OF INTEGER[20];
+    i,j : INTEGER;
+    sum : INTEGER :=  0;
+    found : BOOLEAN;    
+BEGIN
+    FOR i FROM 0 TO tab1.length-1 DO    
+        FOR j FROM 0 TO tab2.length-1 DO
+            IF(tab1[i] <>tab2[j]) THEN
+            sum := sum + tab1[i];
+            END IF
+        END_FOR
+    END_FOR
+
+    FOR i FROM 0 TO tab2.length-1 DO
+        FOR j FROM 0 TO tab1.length-1 DO
+            IF(tab2[i] <>tab1[j]) THEN
+            sum := sum + tab2[i];
+            END IF
+        END_FOR
+    END_FOR
+    Write(sum);
+END 
+// sum of overlapping elements
+VAR
+    tab1,tab2 : ARRAY_OF INTEGER[20];
+    i,j : INTEGER;
+    sum : INTEGER :=  0;
+    found : BOOLEAN;    
+BEGIN
+    FOR i FROM 0 TO tab1.length-1 DO    
+        FOR j FROM 0 TO tab2.length-1 DO
+            IF(tab1[i]=tab2[j]) THEN
+            sum := sum + tab1[i];
+            END IF
+        END_FOR
+    END_FOR
+
+    FOR i FROM 0 TO tab2.length-1 DO
+        FOR j FROM 0 TO tab1.length-1 DO
+            IF(tab2[i] =tab1[j]) THEN
+            sum := sum + tab2[i];
+            END IF
+        END_FOR
+    END_FOR
+    Write(sum);
+END 
